@@ -53,6 +53,13 @@
         "path": "./snippets/java.json"
       }
     ],
+    "grammars": [
+      {
+        "language": "java",
+        "scopeName": "source.java",
+        "path": "./grammars/java.json"
+      }
+    ],
     "configuration": {
       "type": "object",
       "title": "Java configuration",
