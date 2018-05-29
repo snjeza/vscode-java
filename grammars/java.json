@@ -34,6 +34,10 @@
           "name": "invalid.illegal.character_not_allowed_here.java"
         },
         {
+          "match": "[A-Z]+",
+          "name": "invalid.deprecated.package_name_not_lowercase.java"
+        },
+        {
           "match": "(?x)\\b(?<!\\$)\n(abstract|assert|boolean|break|byte|case|catch|char|class|\nconst|continue|default|do|double|else|enum|extends|final|\nfinally|float|for|goto|if|implements|import|instanceof|int|\ninterface|long|native|new|package|private|protected|public|\nreturn|short|static|strictfp|super|switch|syncronized|this|\nthrow|throws|transient|try|void|volatile|while|\ntrue|false|null)\\b",
           "name": "invalid.illegal.character_not_allowed_here.java"
         },
@@ -96,6 +100,9 @@
     },
     {
       "include": "#code"
+    },
+    {
+      "include": "#module"
     }
   ],
   "repository": {
@@ -1040,6 +1047,45 @@
         },
         {
           "include": "#comments"
+        }
+      ]
+    },
+    "module": {
+      "begin": "((open)\\s)?(module)\\s+(\\w+)",
+      "end": "}",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.modifier.java"
+        },
+        "3": {
+          "name": "storage.modifier.java"
+        },
+        "4": {
+          "name": "entity.name.type.module.java"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.module.end.bracket.curly.java"
+        }
+      },
+      "name": "meta.module.java",
+      "patterns": [
+        {
+          "begin": "{",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.section.module.begin.bracket.curly.java"
+            }
+          },
+          "end": "(?=})",
+          "contentName": "meta.module.body.java",
+          "patterns": [
+            {
+              "match": "\\b(requires|transitive|exports|opens|to|uses|provides|with)\\b",
+              "name": "keyword.module.java"
+            }
+          ]
         }
       ]
     },
