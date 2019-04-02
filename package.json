@@ -131,6 +131,12 @@
           "description": "Enable/disable the Maven importer.",
           "scope": "window"
         },
+        "java.maven.downloadSources": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable downloading Maven source artifacts.",
+          "scope": "window"
+        },
         "java.referencesCodeLens.enabled": {
           "type": "boolean",
           "default": false,
